@@ -22,8 +22,24 @@ Example usage:
     python transcribe_async.py gs://cloud-samples-tests/speech/vr.flac
 """
 
+import os
 import argparse
 import io
+import subprocess
+import sys
+import base64
+import json
+
+from googleapiclient import discovery
+import httplib2
+from oauth2client.client import GoogleCredentials
+
+
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/mamun/Downloads/Inscribe-709b5bcac3d5.json"
+
+
+DISCOVERY_URL = ('https://{api}.googleapis.com/$discovery/rest?'
+                 'version={apiVersion}')
 
 
 # [START def_transcribe_file]
